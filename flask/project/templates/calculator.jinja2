@@ -1,0 +1,176 @@
+{% extends 'layout.jinja2' %}
+
+
+{% block styles %}
+    <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/forms.css') }}"
+            type="text/css"
+    />
+{% endblock %}
+
+{% block content %}
+
+
+<div class="form-wrapper">
+   <h1 class="title">IPM Calculator</h1>
+   <h2 class="title">Mandatory Fields</h2>
+   <form method="POST" action="{{ url_for('routes.calculator') }}">
+      <fieldset class="form-field">
+         {{ form.age.label }}
+         {{ form.age }}
+         {% if form.age.errors %}
+         <ul class="errors">
+            {% for error in form.age.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+         </ul>
+         {% endif %}
+      </fieldset>
+      <fieldset class="form-field">
+         {{ form.ecog.label }}
+         {{ form.ecog }}
+         {% if form.ecog.errors %}
+         <ul class="errors">
+            {% for error in form.ecog.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+         </ul>
+         {% endif %}
+      </fieldset>
+      <fieldset class="form-field">
+         {{ form.albumin.label }}
+         {{ form.albumin }}
+         {% if form.albumin.errors %}
+         <ul class="errors">
+            {% for error in form.albumin.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+         </ul>
+         {% endif %}
+      </fieldset>
+      <fieldset class="form-field">
+         {{ form.ca_125.label }}
+         {{ form.ca_125 }}
+         {% if form.ca_125.errors %}
+         <ul class="errors">
+            {% for error in form.ca_125.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+         </ul>
+         {% endif %}
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.brca_any.label }}
+            {{ form.brca_any }}
+         </tr>
+      </fieldset>
+      {# <h2 class="title">Surgical Resectability</h2>
+      <fieldset class="form-field">
+         <tr> {{ form.splenic_hilum.label }}
+            {{ form.splenic_hilum }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.gastro_lig.label }}
+            {{ form.gastro_lig }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.gastro_lig.label }}
+            {{ form.gastro_lig }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.retroperi_supra.label }}
+            {{ form.retroperi_supra }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.sb_adhesions.label }}
+            {{ form.sb_adhesions }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.ascites.label }}
+            {{ form.ascites }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.gb_fossa.label }}
+            {{ form.gb_fossa }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.lesser_sac.label }}
+            {{ form.lesser_sac }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.sma_root.label }}
+            {{ form.sma_root }}
+         </tr>
+      </fieldset>
+      <h3 class="title">
+      Surgical Complexity</h2>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_tahbso.label }}
+            {{ form.pre_tahbso }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_plnd.label }}
+            {{ form.pre_plnd }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_palnd.label }}
+            {{ form.pre_palnd }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_pelvic.label }}
+            {{ form.pre_pelvic }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_abdo.label }}
+            {{ form.pre_abdo }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_bowel.label }}
+            {{ form.pre_bowel }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_diaphr.label }}
+            {{ form.pre_diaphr }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_splen.label }}
+            {{ form.pre_splen }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_liver.label }}
+            {{ form.pre_liver }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_lar.label }}
+            {{ form.pre_lar }}
+         </tr>
+      </fieldset>
+      <fieldset class="form-field">
+         <tr> {{ form.pre_vats.label }}
+            {{ form.pre_vats }}
+         </tr>
+      </fieldset>
+       #}
+      {{ form.submit }}
+   </form>
+</div>
+
+{% endblock %}
