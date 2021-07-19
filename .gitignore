@@ -3,3 +3,7 @@
 **/.env
 **/.vscode
 **/.DS_Store
+**/jmp_score.py 
+**/ngr.py 
+**/opt.py 
+**/dev_stuff
