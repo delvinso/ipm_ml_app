@@ -14,8 +14,10 @@
 
 <div class="form-wrapper">
    <h1 class="title">IPM Calculator</h1>
-   <h2 class="title">Mandatory Fields</h2>
+   <h2 class="">Mandatory Fields</h2>
    <form method="POST" action="{{ url_for('routes.calculator') }}">
+      {{ form.hidden_tag() }}
+
       <fieldset class="form-field">
          {{ form.age.label }}
          {{ form.age }}
@@ -39,11 +41,11 @@
          {% endif %}
       </fieldset>
       <fieldset class="form-field">
-         {{ form.albumin.label }}
-         {{ form.albumin }}
-         {% if form.albumin.errors %}
+         {{ form.alb.label }}
+         {{ form.alb }}
+         {% if form.alb.errors %}
          <ul class="errors">
-            {% for error in form.albumin.errors %}
+            {% for error in form.alb.errors %}
             <li>{{ error }}</li>
             {% endfor %}
          </ul>
@@ -61,29 +63,29 @@
          {% endif %}
       </fieldset>
       <fieldset class="form-field">
-         <tr> {{ form.brca_any.label }}
-            {{ form.brca_any }}
+         <tr> {{ form.brca.label }}
+            {{ form.brca }}
          </tr>
       </fieldset>
-      {# <h2 class="title">Surgical Resectability</h2>
+      <h2 class="title">Surgical Resectability</h2>
       <fieldset class="form-field">
          <tr> {{ form.splenic_hilum.label }}
             {{ form.splenic_hilum }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
+         <tr> {{ form.gastrohepatic_lig.label }}
+            {{ form.gastrohepatic_lig }}
+         </tr>
+      </fieldset>
+      {# <fieldset class="form-field">
          <tr> {{ form.gastro_lig.label }}
             {{ form.gastro_lig }}
          </tr>
-      </fieldset>
+      </fieldset> #}
       <fieldset class="form-field">
-         <tr> {{ form.gastro_lig.label }}
-            {{ form.gastro_lig }}
-         </tr>
-      </fieldset>
-      <fieldset class="form-field">
-         <tr> {{ form.retroperi_supra.label }}
-            {{ form.retroperi_supra }}
+         <tr> {{ form.retroperitoneal_suprarenal_ln.label }}
+            {{ form.retroperitoneal_suprarenal_ln }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
@@ -111,11 +113,10 @@
             {{ form.sma_root }}
          </tr>
       </fieldset>
-      <h3 class="title">
-      Surgical Complexity</h2>
+      <h3 class="title">Surgical Complexity</h2>
       <fieldset class="form-field">
-         <tr> {{ form.pre_tahbso.label }}
-            {{ form.pre_tahbso }}
+         <tr> {{ form.pre_tahbso_omx.label }}
+            {{ form.pre_tahbso_omx }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
@@ -129,18 +130,18 @@
          </tr>
       </fieldset>
       <fieldset class="form-field">
-         <tr> {{ form.pre_pelvic.label }}
-            {{ form.pre_pelvic }}
+         <tr> {{ form.pre_pelvicperit.label }}
+            {{ form.pre_pelvicperit }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
-         <tr> {{ form.pre_abdo.label }}
-            {{ form.pre_abdo }}
+         <tr> {{ form.pre_abdoperit.label }}
+            {{ form.pre_apre_abdoperitbdo }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
-         <tr> {{ form.pre_bowel.label }}
-            {{ form.pre_bowel }}
+         <tr> {{ form.pre_bowelresect.label }}
+            {{ form.pre_bowelresect }}
          </tr>
       </fieldset>
       <fieldset class="form-field">
@@ -168,7 +169,14 @@
             {{ form.pre_vats }}
          </tr>
       </fieldset>
-       #}
+
+
+      <fieldset class="form-field">
+         <tr> {{ form.st_4unresec.label }}
+            {{ form.st_4unresec }}
+         </tr>
+      </fieldset>
+      
       {{ form.submit }}
    </form>
 </div>
