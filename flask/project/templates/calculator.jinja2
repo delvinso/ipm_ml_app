@@ -11,13 +11,12 @@
 
 {% block content %}
 
-
 <div class="form-wrapper">
-   <h1 class="title">IPM Calculator</h1>
-   <h2 class="">Mandatory Fields</h2>
+   <h1 class="title">IPM Prediction</h1>
+
    <form method="POST" action="{{ url_for('routes.calculator') }}">
       {{ form.hidden_tag() }}
-
+      <h3 class="subtitle">Mandatory Fields</h3>
       <fieldset class="form-field">
          {{ form.age.label }}
          {{ form.age }}
@@ -67,7 +66,7 @@
             {{ form.brca }}
          </tr>
       </fieldset>
-      <h2 class="title">Surgical Resectability</h2>
+      <h3 class="subtitle">Surgical Resectability</h3>
       <fieldset class="form-field">
          <tr> {{ form.splenic_hilum.label }}
             {{ form.splenic_hilum }}
@@ -78,11 +77,7 @@
             {{ form.gastrohepatic_lig }}
          </tr>
       </fieldset>
-      {# <fieldset class="form-field">
-         <tr> {{ form.gastro_lig.label }}
-            {{ form.gastro_lig }}
-         </tr>
-      </fieldset> #}
+ 
       <fieldset class="form-field">
          <tr> {{ form.retroperitoneal_suprarenal_ln.label }}
             {{ form.retroperitoneal_suprarenal_ln }}
@@ -93,11 +88,14 @@
             {{ form.sb_adhesions }}
          </tr>
       </fieldset>
+
       <fieldset class="form-field">
-         <tr> {{ form.ascites.label }}
+         {# <tr>  #}
+            {{ form.ascites.label }}
             {{ form.ascites }}
-         </tr>
+         {# </tr> #}
       </fieldset>
+
       <fieldset class="form-field">
          <tr> {{ form.gb_fossa.label }}
             {{ form.gb_fossa }}
@@ -113,7 +111,7 @@
             {{ form.sma_root }}
          </tr>
       </fieldset>
-      <h3 class="title">Surgical Complexity</h2>
+      <h3 class="subtitle">Surgical Complexity</h3>
       <fieldset class="form-field">
          <tr> {{ form.pre_tahbso_omx.label }}
             {{ form.pre_tahbso_omx }}
@@ -144,6 +142,7 @@
             {{ form.pre_bowelresect }}
          </tr>
       </fieldset>
+
       <fieldset class="form-field">
          <tr> {{ form.pre_diaphr.label }}
             {{ form.pre_diaphr }}
@@ -170,13 +169,30 @@
          </tr>
       </fieldset>
 
-
       <fieldset class="form-field">
          <tr> {{ form.st_4unresec.label }}
             {{ form.st_4unresec }}
          </tr>
       </fieldset>
-      
+
+      <h3 class="subtitle">Predictions</h3>
+      <table>
+
+      {% for key in predictions %}
+      <tr>
+         {# split key for formatting #}
+         {% set names = key.split('_') %}
+         <td>
+         {{ names[0]|upper }} Score: 
+         </td>
+         <td>
+         {{'%0.3f'|format(predictions[key]|float)}}
+         </td>
+      </tr>
+      {% endfor %}
+      </table>
+
+
       {{ form.submit }}
    </form>
 </div>
