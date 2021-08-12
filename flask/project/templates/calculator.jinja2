@@ -175,7 +175,7 @@
          </tr>
       </fieldset>
 
-      <h3 class="subtitle">Predictions</h3>
+      <h3 class="subtitle">Predicted Probabilities</h3>
       <table>
 
       {% for key in predictions %}
@@ -183,7 +183,7 @@
          {# split key for formatting #}
          {% set names = key.split('_') %}
          <td>
-         {{ names[0]|upper }} Score: 
+         {{ names[0]}}: 
          </td>
          <td>
          {{'%0.3f'|format(predictions[key]|float)}}
