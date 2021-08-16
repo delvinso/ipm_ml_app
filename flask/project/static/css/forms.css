@@ -74,9 +74,13 @@ input, textarea, select {
   outline-style: none;
 }
 
-input, select{
+input{
   float: right;
-  width: 12.5%;
+  width: 10%;
+}
+select{
+  float: right;
+  width: 17.5%;
 }
 
 input[type="text"]::placeholder {

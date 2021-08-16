@@ -29,8 +29,8 @@ class CalculatorForm(FlaskForm):
     alb = FloatField("Albumin", validators=[DataRequired()])
     ca_125 = IntegerField("CA-125", validators=[DataRequired()])
     brca = SelectField(
-        "BRCA",
-        choices=[(999999, "U"), (0, "N"), (1, "Y")],
+        "BRCA1/2 Mutation (Germline or Somatic)",
+        choices=[(999999, "Unk"), (0, "BRCA1"), (1, "BRCA2")],
         # validators=[DataRequired()],
         default=999999,
         coerce=int,
@@ -71,9 +71,9 @@ class CalculatorForm(FlaskForm):
     pre_abdoperit = BooleanField("Abdominal Peritoneum Stripping", default=0)
     pre_bowelresect = RadioField(
         "Bowel Resection",
-        choices=[(0, "Small Bowel"), (1, "Large Bowel"), (2, "Both")],
+        choices=[(1, "Small Bowel"), (2, "Large Bowel"), (3, "Both")],
         # validators=[DataRequired()],
-        default=0,
+        default=1,
         coerce=int,
     )  # should be ordinal SB, LB, Both
     pre_diaphr = BooleanField("Diaphragm Stripping or Resection", default=0)

@@ -79,6 +79,6 @@ def predict(data):
     )
 
     return {
-        "Optimal Cytoreduction": opt_score["Prob(pds_opt==1)_1"],
-        "No Growth Residual   ": ngr_score["Prob(pds_ngr==1)_1"],
+        "Optimal Cytoreduction           ": opt_score["Prob(pds_opt==1)_1"],
+        "No Growth Residual Cytoreduction": ngr_score["Prob(pds_ngr==1)_1"],
     }
