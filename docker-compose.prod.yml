@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile # shares same dockerfile
+    expose:
+      - 5000
+    env_file:
+      - ./.env.prod 
+    volumes:
+      - ./flask/:/usr/src/app/
+  nginx:
+    build: ./nginx
+    ports:
+      - 1111:80
+    depends_on:
+      - web
+      

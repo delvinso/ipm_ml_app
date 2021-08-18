@@ -1,6 +1,6 @@
 **/dev_stuff
 **/__pycache__
-**/.env
+**/.env**
 **/.vscode
 **/.DS_Store
 **/jmp_score.py 
