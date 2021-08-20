@@ -9,7 +9,6 @@ from wtforms import (
 )
 from wtforms.validators import DataRequired
 
-
 class CalculatorForm(FlaskForm):
     """
     IPM Calculator
@@ -30,7 +29,7 @@ class CalculatorForm(FlaskForm):
     ca_125 = IntegerField("CA-125", validators=[DataRequired()])
     brca = SelectField(
         "BRCA1/2 Mutation (Germline or Somatic)",
-        choices=[(999999, "Unk"), (0, "BRCA1"), (1, "BRCA2")],
+        choices=[(999999, "Unknown"), (0, "BRCA1"), (1, "BRCA2")],
         # validators=[DataRequired()],
         default=999999,
         coerce=int,
@@ -48,7 +47,7 @@ class CalculatorForm(FlaskForm):
     sb_adhesions = BooleanField(
         "Diffuse Small Bowel Adhesions or Thickening", default=0
     )
-    ascites = RadioField(
+    ascites = SelectField(
         "Moderate-Severe Abdominal Ascites or CA-125 >600",
         choices=[(1, "Low"), (2, "Moderate"), (3, "Severe")],
         # validators=[DataRequired()],
@@ -69,7 +68,7 @@ class CalculatorForm(FlaskForm):
     pre_palnd = BooleanField("Para-Aortic Lymphadenectomy", default=0)
     pre_pelvicperit = BooleanField("Pelvic Peritoneum Stripping", default=0)
     pre_abdoperit = BooleanField("Abdominal Peritoneum Stripping", default=0)
-    pre_bowelresect = RadioField(
+    pre_bowelresect = SelectField(
         "Bowel Resection",
         choices=[(1, "Small Bowel"), (2, "Large Bowel"), (3, "Both")],
         # validators=[DataRequired()],

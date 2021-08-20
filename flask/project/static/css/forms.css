@@ -10,7 +10,7 @@ form {
 
 /*relates to the OUTSIDE of the form*/
 .container {
-  padding: 100px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
 }
@@ -38,7 +38,7 @@ form {
 /*changed WIDTH to 420px because GALLBLADDER FOSSA wasn't lining up with the check box*/
 .form-wrapper {
   background: white;
-  width: 450px;
+  width: 500px;
   box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
   padding: 40px;
 }
@@ -74,13 +74,21 @@ input, textarea, select {
   outline-style: none;
 }
 
-input{
+input[type="text"]{
+  float: right;
+  width: 7.5%;
+  margin-right: 4.5%;
+}
+input[type="checkbox"]{
   float: right;
   width: 10%;
+  margin-right: 5%;
 }
+
 select{
   float: right;
-  width: 17.5%;
+/*   width: 22.5%; */
+  margin-left: 5%;
 }
 
 input[type="text"]::placeholder {
