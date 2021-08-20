@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    container_name: web
     build:
       context: .
       dockerfile: ./Dockerfile # shares same dockerfile
@@ -12,9 +13,12 @@ services:
     volumes:
       - ./flask/:/usr/src/app/
   nginx:
+    container_name: nginx
+    restart: always
     build: ./nginx
     ports:
-      - 1111:80
+      - 443:443
     depends_on:
       - web
-      
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs

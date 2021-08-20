@@ -8,3 +8,5 @@
 **/opt.py 
 **/dev_stuff
 **workspace
+nginx/certs/
+nginx/logs

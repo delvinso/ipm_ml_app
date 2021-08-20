@@ -43,10 +43,10 @@ def calculator():
     return render_template("calculator.jinja2", form=form, template="form-template")
 
 
-@routes.route("/api/predict", methods=["POST"])
-def predict2():
-    data = request.json
-    return jsonify(predict(data))
+# @routes.route("/api/predict", methods=["POST"])
+# def predict2():
+#     data = request.json
+#     return jsonify(predict(data))
 
 
 def predict(data):
