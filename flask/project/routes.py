@@ -56,11 +56,11 @@ def predict(data):
     """
 
     model_vars = list(ngr.getInputMetadata().keys())
-    # missing_vars = [k for k in model_vars if k not in data]
-
-    # if len(missing_vars) > 0:
-    #     app.logger.error('Not all form variables were found in the model metadata...please check')
-    #     abort(500)
+    missing_vars = [k for k in model_vars if k not in data]
+    # app.logger.debug('Missing Variables: ', missing_vars)
+    if len(missing_vars) > 0:
+        app.logger.error('Not all form variables were found in the model metadata...please check')
+        abort(500)
 
     relevant_d = {k: data[k] for k in list(ngr.getInputMetadata().keys()) if k in data}
 
