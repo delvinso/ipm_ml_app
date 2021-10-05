@@ -1,39 +1,8 @@
-## TODO
-
-- remove username/password from forms.css
-- CCM specific stuff in layout.jinja2
-- remove index.jinja2,signup.jinja2, success.jinja2
-- add models and jmp_score, RENAME VARIABLES SO THEY ARE INLINE WITH THE FIELD NAMES. this way when we call form.data() the data will be good to go wrt to prediction.
-- likewise for css fields
-
-
-## IPM ML App
-
-Please contact ...
-
-
+# IPM ML App
 ## About
 
-This is a web-app built using flask following factory guidelines containerized using docker-compose.
+A web-app built using flask following factory guidelines for Piedimonte et al. 2021. The app is served using gunicorn with nginx acting as a reverse proxy and is containerized using docker-compose. 
 
 The core of the app are two objective scoring models built to predict the probability of optimal (OPT) and no growth residual (NGR) cytoreduction. These two files, along with `jmp_score.py` (obtained by being a licensed JMP 15.2+) need to be placed inside the `flask/project/` folder for the app to work correctly.
 
-```
-docker build -t test .   # uses dockerfile
-docker run -p 5000:5000 test # port to expose and tag
-docker exec -it 2cda2b0643f8 bash 
-
-docker build -t ipm . && docker run -p 5000:5000 ipm
-
-docker-compose -f docker-compose.prod.yml up --build
-```
-# Production 
-
-The following files require a separate copy for production:
-- [x] the flask app should be served using Gunicorn instead of Flask
-- [x] the above is conditional on the env file (.env or .env.prod) served by entrypoint.sh in flask/
-- [x] docker-compose.prod.yml, with nginx as an additional service to act as a reverse proxy for Gunicorn 
-- [?] nginx set-up per: https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/#gunicorn, conf and certificates?
-- 
-
-- need to get a vm set-up?
+The site can be visited at either ipm-ml.ccm.sickkids.ca or ipm.ccm.sickkids.ca.
