@@ -82,7 +82,7 @@ class CalculatorForm(FlaskForm):
     pre_vats = BooleanField("VATS/Intrathoracic Resection ", default=0)
 
     st_4unresec = BooleanField(
-        "Stage 4 Unresection (Used only in NGR prediction) ", default=0
+        "Stage 4 Unresection", default=0
     )
 
     submit = SubmitField("Submit")
