@@ -14,6 +14,9 @@
 <div class="form-wrapper">
    <h1 class="title">IPM Prediction</h1>
 
+   <p>This web app has not yet been fully tested and is currently under review in Piedimonte et al. 2021. 
+   It is <b>not for clinical use</b> and we are not responsible for any decisions made as a result of this application.</p>
+
    <form method="POST" action="{{ url_for('routes.calculator') }}">
       {{ form.hidden_tag() }}
       <h3 class="subtitle">Patient Factors</h3>

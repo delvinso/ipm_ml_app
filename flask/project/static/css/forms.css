@@ -42,6 +42,14 @@ form {
   box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
   padding: 40px;
 }
+
+p {
+  font-size: 1.0em;
+  color: #5f6988;
+  margin-bottom: 2px;
+  font-weight: 300;
+}
+
 /* Changing to INLINE instead of INLINE-BLOCK allowed labels to display properly */
 label {
   width: 30%;
