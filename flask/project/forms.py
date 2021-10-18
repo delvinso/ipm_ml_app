@@ -7,7 +7,8 @@ from wtforms import (
     RadioField,
     SelectField,
 )
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, InputRequired
+
 
 class CalculatorForm(FlaskForm):
     """
@@ -24,9 +25,9 @@ class CalculatorForm(FlaskForm):
             DataRequired(message="This should be in years, eg. 18, an integer."),
         ],
     )
-    ecog = IntegerField("ECOG", validators=[DataRequired()])
-    alb = FloatField("Albumin", validators=[DataRequired()])
-    ca_125 = IntegerField("CA-125", validators=[DataRequired()])
+    ecog = IntegerField("ECOG", validators=[InputRequired()])
+    alb = FloatField("Albumin", validators=[InputRequired()])
+    ca_125 = IntegerField("CA-125", validators=[InputRequired()])
     brca = SelectField(
         "BRCA1/2 Mutation (Germline or Somatic)",
         choices=[(999999, "Unknown"), (0, "BRCA1"), (1, "BRCA2")],
@@ -69,7 +70,7 @@ class CalculatorForm(FlaskForm):
     pre_pelvicperit = BooleanField("Pelvic Peritoneum Stripping", default=0)
     pre_abdoperit = BooleanField("Abdominal Peritoneum Stripping", default=0)
     pre_bowelresect = SelectField(
-        "Bowel Resection",
+        "Bowel Resection, excluding LAR",
         choices=[(1, "Small Bowel"), (2, "Large Bowel"), (3, "Both")],
         # validators=[DataRequired()],
         default=1,
@@ -81,8 +82,6 @@ class CalculatorForm(FlaskForm):
     pre_lar = BooleanField("Rectosigmoidectomy with Reanstomosis", default=0)
     pre_vats = BooleanField("VATS/Intrathoracic Resection ", default=0)
 
-    st_4unresec = BooleanField(
-        "Stage 4 Unresection", default=0
-    )
+    st_4unresec = BooleanField("Stage 4 Unresection", default=0)
 
     submit = SubmitField("Submit")
