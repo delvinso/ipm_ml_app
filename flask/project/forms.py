@@ -48,12 +48,8 @@ class CalculatorForm(FlaskForm):
     sb_adhesions = BooleanField(
         "Diffuse Small Bowel Adhesions or Thickening", default=0
     )
-    ascites = SelectField(
-        "Moderate-Severe Abdominal Ascites or CA-125 >600",
-        choices=[(1, "Low"), (2, "Moderate"), (3, "Severe")],
-        # validators=[DataRequired()],
-        default=1,
-        coerce=int,
+    ascites = BooleanField(
+        "Moderate-Severe Abdominal Ascites or CA-125 >600", default=0
     )
     # CHECK WITH SABRINA - looks binary to me
     gb_fossa = BooleanField(
