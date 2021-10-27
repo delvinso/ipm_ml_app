@@ -78,6 +78,8 @@ class CalculatorForm(FlaskForm):
     pre_lar = BooleanField("Rectosigmoidectomy with Reanstomosis", default=0)
     pre_vats = BooleanField("VATS/Intrathoracic Resection ", default=0)
 
-    st_4unresec = BooleanField("Stage 4 Unresection", default=0)
+    st_4unresec = BooleanField(
+        "Stage 4 Unresection", default=0, render_kw={"disabled": True}
+    )
 
     submit = SubmitField("Submit")
