@@ -12,12 +12,15 @@
 {% block content %}
 
 <div class="form-wrapper">
-   <h1 class="title">IPM Prediction</h1>
+   <h1 class="title">Integrated Prediction Model Machine Learning Algorithm</h1>
 
    <p>This web app has not yet been fully tested and is currently under review in Piedimonte et al. 2021. 
    It is <b>not for clinical use</b> and we are not responsible for any decisions made as a result of this application.
    <br><br>
-   Note on 'Stage 4 Unresection': The NGR model uses this variable but is forced to a value of 0. The OPT model does not use this variable and so it has no impact on the prediction.
+   After a patient has been deemed a candidate for primary cytoreductive surgery (excluding patients selected for neoadjuvant chemotherapy and patients with stage IVb unresectable disease), 
+   impute the following variables below. 
+   <br><br>
+   After pressing the submit button, the algorithm will determine the probability of optimal cytoreduction and a probability of no gross residual disease.
    </p>
 
    <form method="POST" action="{{ url_for('routes.calculator') }}">
@@ -175,11 +178,13 @@
          </tr>
       </fieldset>
 
+      {# 
       <fieldset class="form-field">
          <tr> {{ form.st_4unresec.label }}
             {{ form.st_4unresec }}
          </tr>
       </fieldset>
+      #}
 
       <h3 class="subtitle">Predicted Probabilities</h3>
       <table>

@@ -56,8 +56,13 @@ def predict(data):
     """
 
     model_vars = list(ngr.getInputMetadata().keys())
+
+    # assign to 0 for NGR model per Sabrina
+    # needs to be here so the proper checks don't fail.
+    data['st_4unresec'] = 0
+
     missing_vars = [k for k in model_vars if k not in data]
-    # app.logger.debug('Missing Variables: ', missing_vars)
+    app.logger.debug('Missing Variables: ', missing_vars)
     if len(missing_vars) > 0:
         app.logger.error('Not all form variables were found in the model metadata...please check')
         abort(500)
