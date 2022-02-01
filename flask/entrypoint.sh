@@ -4,7 +4,7 @@ if [[ "$FLASK_ENV" = "development" ]]
 then
     echo $FLASK_ENV 
     # cd flask 
-    flask run -h 0.0.0.0
+    flask run #-h 0.0.0.0
 elif [[ "$FLASK_ENV" = "production" ]]
 then
     echo $FLASK_ENV 
